@@ -21,11 +21,13 @@ const sundaeOptions = JSON.parse(sundaeOptionsRaw);
 
 app.get("/scoops", (req, res) => {
   // return data from file
+  console.log("scoops");
   res.json(sundaeOptions.iceCreamFlavors);
 });
 
 app.get("/toppings", (req, res) => {
   // return data from file
+  console.log("toppings");
   res.json(sundaeOptions.toppings);
 });
 
