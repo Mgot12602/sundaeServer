@@ -7,7 +7,7 @@ const app = express();
 // CORS for react app, assuming port 3000
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.ORIGIN || "http://localhost:3000",
     credentials: true,
   })
 );
@@ -42,8 +42,9 @@ app.post("/order", (req, res) => {
 });
 
 if (require.main === module) {
-  app.listen(process.env.PORT || 3030, () =>
-    console.log("Sundae server listening on port 3030!")
+  const PORT = process.env.PORT || 3030;
+  app.listen(PORT, () =>
+    console.log(`Sundae server listening on port ${PORT}!`)
   );
 }
 
