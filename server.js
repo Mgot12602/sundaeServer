@@ -18,7 +18,7 @@ app.use(express.static("public"));
 // read data from options file
 const sundaeOptionsRaw = fs.readFileSync("./sundae-options.json", "utf-8");
 const sundaeOptions = JSON.parse(sundaeOptionsRaw);
-
+console.log("we are here");
 app.get("/scoops", (req, res) => {
   // return data from file
   console.log("scoops");
@@ -43,11 +43,9 @@ app.post("/order", (req, res) => {
     .json({ orderNumber });
 });
 
-if (require.main === module) {
-  const PORT = process.env.PORT || 3030;
-  app.listen(PORT, () =>
-    console.log(`Sundae server listening on port ${PORT}!`)
-  );
-}
+// if (require.main === module) {
+const PORT = process.env.PORT || 3030;
+app.listen(PORT, () => console.log(`Sundae server listening on port ${PORT}!`));
+// }
 
 module.exports = app;
