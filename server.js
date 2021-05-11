@@ -3,7 +3,7 @@ const cors = require("cors");
 const fs = require("fs");
 
 const app = express();
-
+console.log("im here btw");
 // CORS for react app, assuming port 3000
 app.use(
   cors({
